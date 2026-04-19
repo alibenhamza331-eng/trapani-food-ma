@@ -658,6 +658,21 @@ function initMobileNav() {
     link.addEventListener("click", () => setMobileNavState(false));
   });
 
+  document.addEventListener("click", (event) => {
+    if (window.innerWidth > 760) {
+      return;
+    }
+    if (!header.contains(event.target)) {
+      setMobileNavState(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMobileNavState(false);
+    }
+  });
+
   updateNavToggleLabel();
 }
 
